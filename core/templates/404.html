@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style_404.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>404</title>
+    
+    <div class="background_404">
+        <div class="main_404">
+            <h1>404 Page not Found!</h1>
+            <p>Looks like this adventurer got lost! Maybe it's better to go back to <a href="{% url 'core' %}">security...</a></p>
+        </div>
+        
+    </div>
+</body>
+{% endblock %}

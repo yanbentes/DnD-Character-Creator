@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>D&D Character Creator</title>
+	
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="{% static '/js/nav.js' %}"></script>
+    </head>
+    <body>
+	<header>
+            <nav>
+		<a class="logo" href="{% url 'core' %}">D&D Character Creator</a>
+		<ul class="nav-list">
+                    <li><a href="{% url 'core' %}">Home</a></li>
+                    <li class="InventoryB" onclick="clickMenu()">Inventory</li>
+                    <div id="InventoryShow" class="li_inventory">
+			<li ><a href="{% url 'inventory' %}" >Characters</a></li>
+			<li ><a href="{% url 'form' %}" >Create Character</a></li>
+                    </div>
+                    <!-- <li><a href="#">Guide</a></li> -->
+		    {% if user.is_authenticated %}
+			<li><a href="{% url 'logout' %}">Hi {{request.user}}, Logout</a></li>
+		    {% else %}
+			<li><a href="{% url 'login' %}">Login</a></li>
+		    {% endif %}
+		</ul>
+            </nav>
+	</header>
+	
+	<footer class="nav-down"> 
+            <div class="footer-content">
+		<h3> code opacity</h3>
+		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+		<ul class="socials">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+		</ul>
+            </div>
+	</footer>
+	<main>
+	    
+	    {% block content %}
+	    {% endblock %}
+	</main>
+    </body>
+    <script>
+     function clickMenu(){
+	 if(InventoryShow.style.display == 'block'){
+             InventoryShow.style.display = 'none'
+	 }else{
+             InventoryShow.style.display = 'block'
+	 }
+
+     }
+    </script>
+</html>

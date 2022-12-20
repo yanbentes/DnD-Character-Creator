@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
+
+    <div class="register_body"> 
+	<div class="box">
+            <div class="container">
+		<div class="top">
+		    <a href="{% url 'login' %}"><span>Already have an account? Login</span></a>
+                    <header>Register</header>
+		</div>
+		
+		<form method="POST" action="">
+		    {% csrf_token %}
+		    <div class="input-field">
+			<div class="input">{{form.username}}</div>
+			<i class='bx bx-user' ></i>
+		    </div>
+		    <div class="input-field">
+			<div class="input">{{form.email}}</div>
+			<i class='bx bx-user' ></i>
+		    </div>
+		    <div class="input-field">
+			<div class="input">{{form.password1}}</div>
+			<i class='bx bx-user' ></i>
+		    </div>
+		    <div class="input-field">
+			<div class="input">{{form.password2}}</div>
+			<i class='bx bx-lock-alt'></i>
+		    </div>
+		    <input type="submit" class="submit" value="Create User">
+		</form>
+            </div>
+	</div>  
+    </div>
+    <script>
+     // Query all input fields
+     var form_fields = document.getElementsByTagName('input')
+     form_fields[1].placeholder='Username';
+     form_fields[2].placeholder='Email';
+     form_fields[3].placeholder='Enter password';
+     form_fields[4].placeholder='Re-enter Password';
+    </script>
+{% endblock %}

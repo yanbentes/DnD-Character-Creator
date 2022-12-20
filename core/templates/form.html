@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style_create_inventory.css' %}">
+    <style>
+     ::-webkit-input-placeholder{
+	 color: rgba(190, 190, 190);
+     }
+    </style>
+    
+    <div class="forms_body"> 
+	<div class="box">
+            <div class="container">
+		<form action="{% if character %}/update/{{character.id}}/{% else %}/create/{% endif %}" method="POST">
+		    {% csrf_token %}
+		    <!-- Character Form -->
+		    <div style="color:white;display:grid;max-width:20%;max-height:100%;padding-top:20px;text-align:right">
+			<div style="color:white;background-color:rgba(31,37,37,0.3);padding:20px 32px;border-radius:8px;padding-block-end:40px;">
+			    <div>
+				{{form.as_p}}
+			    </div>
+			    <div style="position: absolute;left: 46%;">
+				<button type="submit" style="width:100px;">Save</button>
+				<button type="submit" style="width:100px;">
+				    <a href="{% url 'inventory' %}" style="color:black">Go back</a>
+				</button>
+			    </div>
+			</div>
+		    </div>
+		</form>
+            </div>
+	</div>  
+    </div>
+{% endblock %}

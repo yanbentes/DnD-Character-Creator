@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+
+    <div class="login_body"> 
+	<div class="box">
+            <div class="container">
+		<div class="top">
+                    <a href="{% url 'register' %}"><span>Don't Have an account? Register</span></a>
+                    <header>Login</header>
+		</div>
+		
+		<form method="POST" action="">
+		    {% csrf_token %}
+		    <div class="input-field">
+			<input type="text" class="input" name="username" placeholder="Username">
+			<i class='bx bx-user' ></i>
+		    </div>
+		    <div class="input-field">
+			<input type="password" class="input" name="password" placeholder="Password">
+			<i class='bx bx-lock-alt'></i>
+		    </div>
+		    <input type="submit" class="submit" value="Login">
+		</form>
+
+		<span>
+		{% for message in messages %}
+		    <p>{{message}}</p>
+		{% endfor %}
+		</span>
+		
+		<div class="two-col">
+                    <div class="one">
+			<input type="checkbox" name="" id="check">
+			<label for="check"> Remember Me</label>
+                    </div>
+                    <div class="two">
+			<label><a href="#">Forgot password?</a></label>
+                    </div>
+		</div>
+            </div>
+	</div>  
+    </div>
+{% endblock %}

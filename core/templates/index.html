@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}    
+<!-- ------------------------Botão ------------------------- -->
+		<div class="div_criarPerso">
+		    <button type="button" class="b_criarPerso" onclick= "window.location.href='{% url 'form' %}';" >New Character</button>
+		</div>
+		<!-- ------------------------Botão-------------------------- -->    
+{% endblock %}
