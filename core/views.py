@@ -53,10 +53,6 @@ def core(request):
     return render(request, 'index.html')
 
 
-# def guide(request):
-#    return render(request, 'guide.html')
-
-
 @login_required(login_url='login')
 def inventory(request):
     data = {}
